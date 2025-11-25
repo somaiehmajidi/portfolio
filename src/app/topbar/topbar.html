@@ -1,0 +1,36 @@
+<div class="topbar">
+    <div class="topbar_inner">
+        <div class="logo" data-type="image">
+            <img src="logo.png" alt="SOMIM Logo"/>
+        </div>
+        <div class="trigger" (click)="toggleMobileMenu()">
+            <div class="hamburger hamburger--slider" [class.is-active]="!hamburgerStatus()">
+                <div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile_menu" [class.opened]="!hamburgerStatus()">
+    <div class="menu_list">
+        <ul class="transition_link">
+            <li>
+                <a routerLink="home" (click)="toggleMobileMenu()">Home</a>
+            </li>
+            <li>
+                <a routerLink="about" (click)="toggleMobileMenu()">About</a>
+            </li>
+            <li>
+                <a routerLink="Portfolio" (click)="toggleMobileMenu()">Portfolio</a>
+            </li>
+            <li>
+                <a routerLink="blog" (click)="toggleMobileMenu()">Blog</a>
+            </li>
+            <li>
+                <a routerLink="contact" (click)="toggleMobileMenu()">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
