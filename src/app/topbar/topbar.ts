@@ -9,11 +9,11 @@ import { RouterLink } from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Topbar {
-  hamburgerStatus = signal(true)
+  openMenu = signal(false)
 
   toggleMobileMenu() {
-    const temp = this.hamburgerStatus()
-    this.hamburgerStatus.set(!temp)
+    const temp = this.openMenu()
+    this.openMenu.set(!temp)
   }
 
 }

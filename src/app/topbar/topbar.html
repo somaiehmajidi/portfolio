@@ -4,7 +4,7 @@
             <img src="logo.png" alt="SOMIM Logo"/>
         </div>
         <div class="trigger" (click)="toggleMobileMenu()">
-            <div class="hamburger hamburger--slider" [class.is-active]="!hamburgerStatus()">
+            <div class="hamburger hamburger--slider" [class.is-active]="openMenu()">
                 <div class="hamburger-box">
 					<div class="hamburger-inner"></div>
 				</div>
@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div class="mobile_menu" [class.opened]="!hamburgerStatus()">
+<div class="mobile_menu" [class.opened]="openMenu()">
     <div class="menu_list">
         <ul class="transition_link">
             <li>
