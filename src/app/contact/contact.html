@@ -1,3 +1,86 @@
 <div class="container">
-    <p>contact works!</p>
+    <div class="contact">
+        
+        <div class="title">
+            <div class="title_flex">
+                <h3>Get in Touch</h3>
+            </div>
+        </div>
+    
+        <div class="fields">
+            <form 
+                class="contact_form" 
+                id="contact_form" 
+                autocomplete="off" 
+                [formGroup]="form" 
+                (ngSubmit)="onSubmit()">
+                @if (success()) {
+                    <div class="returnmessage">Your message has been received, We will contact you soon.</div>
+                }
+                @if (error()) {
+                    <div class="empty_notice"><span>Please try again</span></div>
+                }
+				
+				<div class="first">
+					<ul>
+						<li>
+                            @let isInvalidName = form.get('name')?.invalid && form.get('name')?.touched;
+							<input id="name" type="text" placeholder="Name" formControlName="name">
+                            @if (isInvalidName) {
+                                <div class="contact_error">
+                                    <span>
+                                        @if (form.get('name')?.hasError('required')) {
+                                            Please Fill Name Field
+                                        }
+                                        @if (form.get('name')?.hasError('maxlength')) {
+                                            Name can not be longer than 50 characters
+                                        }
+                                    </span>
+                                </div>
+                            }
+						</li>
+						<li>
+                            @let isInvalidEmail = form.get('email')?.invalid && form.get('email')?.touched;
+							<input id="email" type="text" placeholder="Email" formControlName="email">
+                            @if (isInvalidEmail) {
+                                <div class="contact_error">
+                                    <span>
+                                        @if (form.get('email')?.hasError('required')) {
+                                            Please Fill email Field
+                                        }
+                                        @if (form.get('email')?.hasError('email')) {
+                                            Email is invalid
+                                        }
+                                    </span>
+                                </div>
+                            }
+						</li>
+					</ul>
+				</div>
+				<div class="last">
+                    @let isInvalidMsg = form.get('message')?.invalid && form.get('message')?.touched;
+					<textarea id="message" placeholder="Message" formControlName="message"></textarea>
+                    @if (isInvalidMsg) {
+                        <div class="contact_error">
+                            <span>
+                                @if (form.get('message')?.hasError('required')) {
+                                    Please Fill message Field
+                                }
+                                @if (form.get('message')?.hasError('maxlength')) {
+                                    Message can not be longer than 200 characters
+                                }
+                            </span>
+                        </div>
+                    }
+				</div>
+				<button id="send_message" type="submit">
+					<span>Send Message</span>
+                    @if (isLoading()) {
+                        <div class="loader"></div>
+                    }
+                </button>
+
+			</form>
+        </div>
+    </div>
 </div>
