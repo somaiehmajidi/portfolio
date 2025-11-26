@@ -4,7 +4,7 @@
         <div class="title">
             <div class="title_flex">
                 <div class="left">
-                    <h3>Portfolio</h3>
+                    <h3>Latest projects</h3>
                 </div>
                 <div class="portfolio_filter">
                     <ul>
@@ -27,74 +27,36 @@
         </div>
 
         <ul class="items">
-            <li>
-                <div class="list_inner">
-                    <div class="image">
-                        <div class="main" data-img-url="img/avatar.webp" style="background-image: url(img/avatar.webp);"></div>
+            @for (item of items(); track item.id) {
+                <li>
+                    <div class="list_inner">
+                        <div class="image">
+                            <div 
+                                class="main" 
+                                data-img-url="img/avatar.webp" 
+                                style="background-image: url(img/avatar.webp);">
+                            </div>
+                        </div>
+                        <div class="details">
+                            <div class="extra">
+                                <div class="short">
+                                    <p class="date">{{ item.title }} / 
+                                        <a [href]="item.link">{{ item.company }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <h6 class="title">
+                                @for (tech of item.tech; track tech; let i = $index;) {
+                                    {{ tech }}
+                                    @if (i < item.tech.length - 1) {
+                                        <span>,</span>
+                                    }
+                                }
+                            </h6>
+                        </div>
                     </div>
-                    <div class="details">
-                        <div class="extra">
-							<div class="short">
-								<p class="date">By <a href="#">Alex Watson</a> <span>22 Oct 2022</span></p>
-							</div>
-						</div>
-                        <h5 class="title">
-                            Angular, Angular Material
-                        </h5>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="list_inner">
-                    <div class="image">
-                        <div class="main" data-img-url="img/avatar.webp" style="background-image: url(img/avatar.webp);"></div>
-                    </div>
-                    <div class="details">
-                        <div class="extra">
-							<div class="short">
-								<p class="date">By <a href="#">Alex Watson</a> <span>22 Oct 2022</span></p>
-							</div>
-						</div>
-                        <h5 class="title">
-                            Angular, Angular Material
-                        </h5>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="list_inner">
-                    <div class="image">
-                        <div class="main" data-img-url="img/avatar.webp" style="background-image: url(img/avatar.webp);"></div>
-                    </div>
-                    <div class="details">
-                        <div class="extra">
-							<div class="short">
-								<p class="date">By <a href="#">Alex Watson</a> <span>22 Oct 2022</span></p>
-							</div>
-						</div>
-                        <h5 class="title">
-                            Angular, Angular Material
-                        </h5>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="list_inner">
-                    <div class="image">
-                        <div class="main" data-img-url="img/avatar.webp" style="background-image: url(img/avatar.webp);"></div>
-                    </div>
-                    <div class="details">
-                        <div class="extra">
-							<div class="short">
-								<p class="date">By <a href="#">Alex Watson</a> <span>22 Oct 2022</span></p>
-							</div>
-						</div>
-                        <h5 class="title">
-                            Angular, Angular Material
-                        </h5>
-                    </div>
-                </div>
-            </li>
+                </li>
+            }
         </ul>
     </div>
 </div>
