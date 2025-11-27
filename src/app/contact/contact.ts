@@ -36,10 +36,13 @@ export class Contact {
       next: () => {
         this.success.set(true)
         setTimeout(() => { this.success.set(false) }, 1000 )
+        this.isLoading.set(false)
+        this.form.reset()
       },
       error: () => {
         this.error.set(true)
         setTimeout(() => { this.error.set(false) }, 1000 )
+        this.isLoading.set(false)
       }
     })
   }

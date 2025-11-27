@@ -73,7 +73,7 @@
                         </div>
                     }
 				</div>
-				<button id="send_message" type="submit">
+				<button id="send_message" type="submit" [disabled]="isLoading()">
 					<span>Send Message</span>
                     @if (isLoading()) {
                         <div class="loader"></div>
