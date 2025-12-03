@@ -26,24 +26,32 @@ export class Contact {
   readonly formStatus = toSignal(this.form.statusChanges, {initialValue: this.form.status})
   readonly isFormValid = computed(() => this.formStatus() === 'VALID')
 
-  onSubmit() {
+  async onSubmit() {
     if (!this.isFormValid()) return
 
     this.isLoading.set(true)
     
     const data = this.form.getRawValue()
-    this.contactService.postContactForm(data).subscribe({
-      next: () => {
-        this.success.set(true)
-        setTimeout(() => { this.success.set(false) }, 1000 )
-        this.isLoading.set(false)
-        this.form.reset()
-      },
-      error: () => {
-        this.error.set(true)
-        setTimeout(() => { this.error.set(false) }, 1000 )
-        this.isLoading.set(false)
-      }
+    this.contactService.postContactForm(data)
+    .then()
+    .finally(() => {
+      this.success.set(true)
+      setTimeout(() => { this.success.set(false) }, 10000 )
+      this.isLoading.set(false)
+      this.form.reset()
     })
+    
+    // next: () => {
+    //   this.success.set(true)
+    //   setTimeout(() => { this.success.set(false) }, 1000 )
+    //   this.isLoading.set(false)
+    //   this.form.reset()
+    // },
+    // error: () => {
+    //   debugger
+    //   this.error.set(true)
+    //   setTimeout(() => { this.error.set(false) }, 1000 )
+    //   this.isLoading.set(false)
+    // }
   }
 }

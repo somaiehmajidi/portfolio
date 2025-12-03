@@ -1,8 +1,8 @@
 services:
   app:
-    image: somim-ssr-app
+    image: somaiemajidi/somim-ssr-app
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4000:4000"
+      - "80:4000"
