@@ -18,7 +18,7 @@ export const data = [
         title: 'Mores Business panel',
         company: 'Segal Mehr',
         link: 'https://mores.ir/en/',
-        img: 'img/projects/isos.jpg',
+        img: 'img/projects/mores.png',
         tag: 'vue',
         tech: [
             'Vue 2 & 3',
@@ -32,7 +32,7 @@ export const data = [
         title: 'Hamgardi Travel Magazine',
         company: 'Mehr Hamgardi',
         link: 'https://hamgardi.com/',
-        img: 'img/projects/isos.jpg',
+        img: 'img/projects/hamgardi.jpg',
         tag: 'js',
         tech: [
             'HTML5',
@@ -46,7 +46,7 @@ export const data = [
         title: 'Makanchi B&B',
         company: 'Mehr Hamgardi',
         link: 'https://makanchi.com/',
-        img: 'img/projects/isos.jpg',
+        img: 'img/projects/makanchi.jpg',
         tag: 'js',
         tech: [
             'HTML5',

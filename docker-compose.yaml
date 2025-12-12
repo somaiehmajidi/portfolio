@@ -1,6 +1,6 @@
 services:
   app:
-    image: somaiemajidi/somim-ssr-app
+    image: somaiemajidi/somim-ssr-app:latest
     build:
       context: .
       dockerfile: Dockerfile

@@ -9,16 +9,16 @@
                 <div class="portfolio_filter">
                     <ul>
                         <li>
-                            <a href="#" class="current">All</a>
+                            <a [class.current]="!keyword()" (click)="filter(null)">All</a>
                         </li>
                         <li>
-                            <a href="#">Angular</a>
+                            <a [class.current]="keyword() === 'angular'" (click)="filter('angular')">Angular</a>
                         </li>
                         <li>
-                            <a href="#">Vue</a>
+                            <a [class.current]="keyword() === 'vue'" (click)="filter('vue')">Vue</a>
                         </li>
                         <li>
-                            <a href="#">JS</a>
+                            <a [class.current]="keyword() === 'js'" (click)="filter('js')">JS</a>
                         </li>
                     </ul>
                 </div>
@@ -27,14 +27,15 @@
         </div>
 
         <ul class="items">
-            @for (item of items(); track item.id) {
+            @for (item of selectedItems(); track item.id) {
                 <li>
                     <div class="list_inner">
                         <div class="image">
+                            <img src="img/thumbs/40-25.jpg" alt="">
                             <div 
                                 class="main" 
                                 data-img-url="img/avatar.webp" 
-                                style="background-image: url(img/avatar.webp);">
+                                [style.background-image]="'url(' + item.img + ')'">
                             </div>
                         </div>
                         <div class="details">

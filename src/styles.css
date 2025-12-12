@@ -654,6 +654,7 @@ a {
 	color: #767676;
 	display: inline-block;
 	font-weight: 500;
+	cursor: pointer;
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
@@ -691,6 +692,8 @@ a {
 }
 .portfolio ul.items li .image img{
 	min-width: 100%;
+	max-width: 100%;
+	min-height: 300px;
 	opacity: 0;
 }
 .portfolio ul.items li .image .main{
