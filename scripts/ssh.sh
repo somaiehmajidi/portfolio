@@ -1,0 +1,1 @@
+ssh -v -i ./ssh/ar-somi-privatekey.pem -o "IdentitiesOnly=yes" -o "IdentityAgent=none" -F /dev/null ubuntu@188.121.100.53
