@@ -11,3 +11,5 @@ jobs:
         - name: Build and Push Docker Images
           run: |
             echo "starting build and push"
+            docker compose -f docker-compose.yaml build
+            docker compose -f docker-compose.yaml push
