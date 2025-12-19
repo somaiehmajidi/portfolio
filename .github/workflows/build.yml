@@ -11,5 +11,6 @@ jobs:
         - name: Build and Push Docker Images
           run: |
             echo "starting build and push"
+            echo "${{secrets.DOCKER_PAT}}" | docker login -u somaiemajidi --password-stdin          
             docker compose -f docker-compose.yaml build
             docker compose -f docker-compose.yaml push
